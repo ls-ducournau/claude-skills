@@ -59,7 +59,15 @@ For each selected activity:
 
 Format: table with 3 columns (Activity | Sub-activities | Deliverable).
 
-### Step 4: Ordering
+### Step 4: Tooling Map
+For each selected activity, identify which skills and agents from the catalog can assist execution. The mapping lives in the chantier files (atemporal), not in the phase files.
+
+- Check the chantier file for existing mappings
+- If no mapping exists, scan the skill catalog by domain
+- Prefer specific skills over generic ones
+- Include both skills (how) and agents (who thinks)
+
+### Step 5: Ordering
 Map three structures:
 - **Dependencies** (A → B): one activity's output is another's input
 - **Feedback loops** (A ↔ B): two activities refine each other iteratively
@@ -67,7 +75,7 @@ Map three structures:
 
 This produces a web, not a sequence. Activities within a "tour" can be worked on in parallel. When a dependency is unlocked, the next activity can start — no need to wait for the entire "tour" to finish.
 
-### Step 5: Challenge
+### Step 6: Challenge
 After filling the phase, identify and discuss:
 - Activities that barely pass the filters
 - Missing activities that might have been overlooked

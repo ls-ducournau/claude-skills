@@ -51,6 +51,7 @@ When starting fresh — no workstreams defined yet. Map all the work that needs 
 3. Group chantiers under fundamental functions
 4. List activities under each chantier (verbs of action, pattern-level — no project-specific data)
 5. Verify completeness against the objective (use web sources if needed)
+6. Map tooling: for each activity, identify which skills/agents can assist execution
 
 ### Mode 2: Fill a Phase
 When the cartography exists and you need to select activities for a specific phase. This is the core workflow.
@@ -60,8 +61,9 @@ When the cartography exists and you need to select activities for a specific pha
 2. Pass 1 — Chantier selection: which chantiers have work to do in this phase? (fast yes/no with justification)
 3. Pass 2 — Activity selection: for each active chantier, filter activities through the 4 criteria
 4. Detail: sub-activities and deliverables for each selected activity
-5. Order: map dependencies (A unlocks B) and feedback loops (A ↔ B refine each other)
-6. Challenge: identify questionable decisions, discuss, resolve
+5. Tooling: map relevant skills/agents to each activity (from chantier files or skill catalog)
+6. Order: map dependencies (A unlocks B) and feedback loops (A ↔ B refine each other)
+7. Challenge: identify questionable decisions, discuss, resolve
 
 ### Mode 3: Challenge Existing Phase
 When a phase is already filled but needs review. Apply the 4 criteria retroactively to each activity and flag those that don't pass.
@@ -104,6 +106,20 @@ Two activities refine each other iteratively. Neither is "first" — they conver
 ### Immediate Start
 Activities with no dependencies from the current phase — they can start as soon as the phase begins (their dependencies were satisfied in previous phases).
 
+## Tooling Map
+
+Each activity in the cartography can be mapped to skills and agents that assist its execution. The mapping lives in the chantier files (not in the phase files) because it's atemporal — the same skill helps the same activity regardless of which phase it's in.
+
+**Format:** Add a `## Skills & Agents` section to each chantier file with a table: `Activity | Skills / Agents`.
+
+**How to map:**
+1. Read the activity's sub-activities and deliverable
+2. Identify which skills/agents from the catalog match the work
+3. Prefer specific skills over generic ones (e.g., `pricing-strategist` over `cs-ceo-advisor` for pricing)
+4. Include both skills (how to do it) and agents (who thinks about it)
+
+**When to use:** Before starting an activity, check its mapped tools. Invoke the relevant skill or agent to assist execution.
+
 ## Proactive Triggers
 
 Surface these issues WITHOUT being asked:
@@ -114,13 +130,14 @@ Surface these issues WITHOUT being asked:
 - **Missing feedback loop** → if two activities clearly inform each other (e.g., spec ↔ implementation), flag the missing loop.
 - **Chantier with only 1 activity in a phase** → question whether the chantier should be active at all, or if the activity belongs elsewhere.
 - **Project-specific data in cartography** → the cartography is pattern-level. Flag any project data that crept in.
+- **Activity without mapped tooling** → flag it. Every activity should have at least one skill or agent that can assist.
 
 ## Output Artifacts
 
 | When you ask for... | You get... |
 |---------------------|------------|
-| "Fill phase X" | Table per chantier (activity / sub-activities / deliverable) + dependency map + feedback loops + challenge points |
-| "Build cartography" | List of chantiers grouped by fundamental functions, with activities as verbs of action |
+| "Fill phase X" | Table per chantier (activity / sub-activities / deliverable) + tooling map + dependency map + feedback loops + challenge points |
+| "Build cartography" | List of chantiers grouped by fundamental functions, with activities as verbs of action + skills/agents mapping |
 | "Challenge phase X" | Each activity tested against the 4 criteria, with pass/fail and justification |
 | "Compare phases" | Side-by-side view of which chantiers/activities are active in each phase |
 
